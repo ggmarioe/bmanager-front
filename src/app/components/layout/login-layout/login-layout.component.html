@@ -1,0 +1,25 @@
+<div class="container d-flex h-100">
+    <div class="row align-self-center w-100">
+        <div class="col-sm-4 mx-auto">
+            <h1 class="display-3">B-Manager</h1>
+            <div class="jumbotron">
+                <h4>Iniciar sesión</h4>
+                <form [formGroup]="loginForm" novalidate class="form" (ngSubmit)="onSubmit()">
+                    <input formControlName="username" 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Nombre usuario"  />
+                    <input formControlName="password" 
+                            type="password" 
+                            class="form-control" 
+                            placeholder="Contraseña" />
+                    <br>
+                    <input type="submit" class="btn btn-info form-control" />
+                </form>
+            </div>
+        </div>
+    </div>
+    {{ loginForm.value | json }}
+</div>
+
+
