@@ -22,4 +22,12 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeDefined();
   });
+
+
+  it('should test login function', () => {
+    let userName = ''; 
+    let password = ''; 
+
+    expect(true).toBeTruthy();
+  });
 });

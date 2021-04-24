@@ -1,46 +1,43 @@
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { AppModule } from 'src/app/app.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginLayoutComponent } from './login-layout.component';
 
 describe('LoginLayoutComponent', () => {
   let component: LoginLayoutComponent;
   let fixture: ComponentFixture<LoginLayoutComponent>;
 
-  const _formBuilder: FormBuilder = new FormBuilder();
 
-  beforeEach(async () => {
+
+  beforeEach(async() => {
     await TestBed.configureTestingModule({
       declarations: [ LoginLayoutComponent ],
       imports: [
-        CommonModule, 
-        ReactiveFormsModule,
-        AppModule
+        CommonModule,
+        ReactiveFormsModule
       ],
-      providers: [{ provide: FormBuilder, useValue: _formBuilder }]
+      providers: []
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LoginLayoutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-
-    component.loginForm = _formBuilder.group({
-      username: null, 
-      password: null
-    })
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('Should test login', () => {
     
   });
+
+
+  it('should create', () => {
+    fixture = TestBed.createComponent(LoginLayoutComponent);
+    component = fixture.componentInstance;
+    expect(component).toBeUndefined();
+  });
+
+  
+  // it('Should test login', () => {
+  //   component.buildForm();
+  //   fixture.detectChanges(); 
+  //   let userName = component.loginForm.controls['username']
+  //   let password = component.loginForm.controls['password']
+
+  //   // fixture.detectChanges(); 
+  //   expect(component.loginForm).toBeDefined();
+    
+  // });
 });

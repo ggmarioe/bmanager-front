@@ -13,6 +13,8 @@ describe('DashboardComponent', () => {
     .compileComponents();
   });
 
+  
+
   beforeEach(() => {
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
@@ -20,6 +22,9 @@ describe('DashboardComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
+    
   });
+
+  afterAll(() => setTimeout(() => process.exit(), 1000))
 });
