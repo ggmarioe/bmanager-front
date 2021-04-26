@@ -11,16 +11,15 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class LoginLayoutComponent implements OnInit {
 
-  loginForm: any;
+  loginForm: FormGroup = new FormGroup({});
   loginData: any;
-
+  mensaje: string = '';
+  
   constructor(private _loginService: LoginService) { }
 
   ngOnInit(): void {
-
     this.buildForm();
     let jwtHelper = new JwtHelperService();
-    console.log(jwtHelper);
    }
 
   buildForm()
@@ -35,13 +34,13 @@ export class LoginLayoutComponent implements OnInit {
 
 
   onSubmit(){
-    let userName = this.loginForm.controls['username'].value;
-    let password = this.loginForm.controls['password'].value;
-    this._loginService.login(userName, password).subscribe(response => {
-      let access = response["access"];
-      let jwtHelper = new JwtHelperService();
-      localStorage.setItem('token',jwtHelper.decodeToken(access));
+    // let userName = this.loginForm.controls['username'].value;
+    // let password = this.loginForm.controls['password'].value;
+    // this._loginService.login(userName, password).subscribe(response => {
+    //   let access = response["access"];
+    //   let jwtHelper = new JwtHelperService();
+    //   localStorage.setItem('token',jwtHelper.decodeToken(access));
 
-    })
+    // })
   }
 }

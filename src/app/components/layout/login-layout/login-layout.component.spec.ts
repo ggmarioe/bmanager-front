@@ -1,43 +1,51 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginLayoutComponent } from './login-layout.component';
 
 describe('LoginLayoutComponent', () => {
-  let component: LoginLayoutComponent;
-  let fixture: ComponentFixture<LoginLayoutComponent>;
-
-
-
+  
   beforeEach(async() => {
     await TestBed.configureTestingModule({
       declarations: [ LoginLayoutComponent ],
       imports: [
-        CommonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientTestingModule
       ],
       providers: []
     })
     .compileComponents();
-    
   });
+
 
 
   it('should create', () => {
-    fixture = TestBed.createComponent(LoginLayoutComponent);
-    component = fixture.componentInstance;
-    expect(component).toBeUndefined();
+    const fixture = TestBed.createComponent(LoginLayoutComponent);
+    let component = fixture.componentInstance;
+    // expect(component).toBeUndefined();
+    expect(component).toBeDefined();
   });
 
   
-  // it('Should test login', () => {
-  //   component.buildForm();
-  //   fixture.detectChanges(); 
-  //   let userName = component.loginForm.controls['username']
-  //   let password = component.loginForm.controls['password']
+  it('Should test login', () => {
+    const fixture = TestBed.createComponent(LoginLayoutComponent);
+    let component = fixture.componentInstance;
 
-  //   // fixture.detectChanges(); 
-  //   expect(component.loginForm).toBeDefined();
+    let userName = component.loginForm.controls['username']
+    let password = component.loginForm.controls['password']
+    expect(component.loginForm).toBeDefined();
     
-  // });
+  });
+
+
+  it('Should show error message', () =>{
+    const fixture = TestBed.createComponent(LoginLayoutComponent);
+    let component = fixture.componentInstance;
+
+    let userName = component.loginForm.controls['username']
+    let password = component.loginForm.controls['password']
+    
+    expect(true).toBe(true);
+  });
 });
